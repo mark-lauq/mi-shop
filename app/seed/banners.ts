@@ -1,6 +1,6 @@
 import { db } from "@/lib/db";
 import { banners } from "@/lib/schema";
-import { bannersData } from "@/lib/placeholder-data";
+import { bannersData, carouselsData } from "@/lib/placeholder-data";
 import { BannerType } from "@/enums/banner";
 
 export async function seedBanners() {
@@ -26,6 +26,14 @@ export async function seedBanners() {
 
   // 插入数据
   const values: (typeof banners.$inferInsert)[] = [];
+
+  carouselsData.forEach((banner, index) => {
+    values.push({
+      ...banner,
+      type: BannerType.HOME_HERO,
+      sortNo: index + 1,
+    });
+  });
 
   bannersData.forEach((banner, index) => {
     values.push({
