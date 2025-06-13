@@ -22,11 +22,9 @@ function Channels() {
         <li key={channel.title} className={styles.channelItem}>
           <a
             href={channel.href}
-            target={"_blank"}
-            rel={"nofollow"}
-            className={
-              "flex h-full w-full flex-col items-center justify-center text-xs text-white opacity-75 duration-200 hover:opacity-100"
-            }
+            target="_blank"
+            rel="nofollow"
+            className="flex h-full w-full flex-col items-center justify-center text-xs text-white opacity-75 duration-200 hover:opacity-100"
           >
             <Image
               src={channel.icon}
@@ -47,7 +45,7 @@ async function Promotions() {
   const promotions = await findBannersByType(BannerType.HOME_HERO_SUB, 3);
 
   return (
-    <ul className={"flex gap-x-3.5"}>
+    <ul className="flex gap-x-3.5">
       {promotions.map((promo) => (
         <li
           key={promo.src}
@@ -55,10 +53,10 @@ async function Promotions() {
             "cursor-pointer duration-200 ease-linear hover:shadow-[0_15px_30px_rgba(0,0,0,.1)]"
           }
         >
-          <a href={promo.href} target={"_blank"} rel={"nofollow"}>
+          <a href={promo.href} target="_blank" rel="nofollow">
             <Image
               src={promo.src}
-              alt={""}
+              alt=""
               width={317}
               height={170}
               unoptimized
