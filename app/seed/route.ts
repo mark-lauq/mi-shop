@@ -1,4 +1,5 @@
 import { seedBanners } from "./banners";
+import { seedLayoutHeroCategories } from "./layouts";
 
 export async function GET() {
   try {
@@ -11,5 +12,5 @@ export async function GET() {
 }
 
 function seedDatabase() {
-  return Promise.all([seedBanners()]);
+  return Promise.all([seedBanners(), seedLayoutHeroCategories()]);
 }
