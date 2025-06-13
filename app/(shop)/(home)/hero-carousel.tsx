@@ -66,7 +66,7 @@ function CarouselControls({
         className={clsx(styles.carouselBtn, styles.next)}
         onClick={() => carouselRef.current?.next()}
       />
-      <ul className={"absolute right-[30] bottom-[20] z-10 flex"}>
+      <ul className="absolute right-[30] bottom-[20] z-10 flex">
         {banners.map((item, index) => (
           <li
             key={item.src}

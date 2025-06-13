@@ -37,3 +37,18 @@ export const carouselsData: Banner[] = [
     href: "https://www.mi.com/shop/buy?product_id=20807",
   },
 ];
+
+export const promotionsData: Banner[] = [
+  {
+    src: "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/e981f78d2ac17c504975a719cb8b069d.png?w=632&h=340",
+    href: "https://www.mi.com/shop/buy?product_id=10050081",
+  },
+  {
+    src: "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/6b04dfc206dec442fe161b33082681ec.png?w=632&h=340",
+    href: "https://www.mi.com/shop/buy?product_id=10050079",
+  },
+  {
+    src: "https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/6b0c7fadbd84a808287af5faad6e62d7.png?w=632&h=340",
+    href: "https://www.mi.com/shop/buy?product_id=20588",
+  },
+];

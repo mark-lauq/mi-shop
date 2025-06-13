@@ -1,6 +1,6 @@
 import { db } from "@/lib/db";
 import { banners } from "@/lib/schema";
-import { bannersData, carouselsData } from "@/lib/placeholder-data";
+import { bannersData, carouselsData, promotionsData } from "@/lib/placeholder-data";
 import { BannerType } from "@/enums/banner";
 
 export async function seedBanners() {
@@ -31,6 +31,14 @@ export async function seedBanners() {
     values.push({
       ...banner,
       type: BannerType.HOME_HERO,
+      sortNo: index + 1,
+    });
+  });
+
+  promotionsData.forEach((banner, index) => {
+    values.push({
+      ...banner,
+      type: BannerType.HOME_HERO_SUB,
       sortNo: index + 1,
     });
   });
