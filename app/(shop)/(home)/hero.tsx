@@ -3,7 +3,9 @@ import { BannerType } from "@/enums/banner";
 import HeroCarousel from "./hero-carousel";
 
 export default async function Hero() {
-  const [banners] = await Promise.all([findBannersByType(BannerType.HOME_HERO)]);
+  const [banners] = await Promise.all([
+    findBannersByType(BannerType.HOME_HERO),
+  ]);
 
   if (!banners.length) {
     return null;
@@ -14,4 +16,8 @@ export default async function Hero() {
       <HeroCarousel banners={banners} />
     </section>
   );
+}
+
+export function HeroSkeleton() {
+  return <div className="w-primary h-[460] animate-pulse bg-gray-200" />;
 }

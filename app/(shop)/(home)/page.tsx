@@ -1,9 +1,10 @@
-import Hero from "./hero";
+import { Suspense } from "react";
+import Hero, { HeroSkeleton } from "./hero";
 
 export default async function HomePage() {
   return (
-    <div className="bg-primary">
+    <Suspense fallback={<HeroSkeleton />}>
       <Hero />
-    </div>
+    </Suspense>
   );
 }
