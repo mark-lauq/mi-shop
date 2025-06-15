@@ -1,10 +1,13 @@
 import { db } from "@/lib/db";
 
-import { layoutHeroCategories, layoutHeroCategoryItems } from "@/lib/schema";
+import {
+  layoutHeroCategories,
+  layoutHeroCategoryItems,
+} from "@/lib/schema/layout";
 import {
   layoutHeroCategoriesData,
   layoutHeroCategoryItemsData,
-} from "@/lib/placeholder-data";
+} from "@/lib/placeholder-data/layout";
 
 export async function seedLayoutHeroCategories() {
   // 删除表
