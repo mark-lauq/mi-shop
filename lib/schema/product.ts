@@ -1,6 +1,5 @@
 import {
   mysqlTable,
-  mysqlEnum,
   serial,
   int,
   varchar,
@@ -10,8 +9,6 @@ import {
   decimal,
   customType,
 } from "drizzle-orm/mysql-core";
-import { BannerType, TargetType } from "@/enums/banner";
-import { LayoutHeroCategoryItemType } from "@/enums/layout";
 import { type ProductDetailItem } from "@/types/product";
 
 const customJson = <T>(name: string) =>
@@ -26,51 +23,6 @@ const customJson = <T>(name: string) =>
       return value.trim?.() ? JSON.parse(value) : (value as T);
     },
   })(name);
-
-export const banners = mysqlTable("banners", {
-  id: serial("id").primaryKey(),
-  type: mysqlEnum("type", [
-    BannerType.HOME_BANNER,
-    BannerType.HOME_BRICK,
-    BannerType.HOME_HERO,
-    BannerType.HOME_HERO_SUB,
-  ])
-    .default(BannerType.HOME_HERO)
-    .notNull(),
-  src: varchar("src", { length: 200 }).notNull(),
-  href: text("href").notNull(),
-  target: mysqlEnum("target", [TargetType.BLANK, TargetType.SELF])
-    .default(TargetType.BLANK)
-    .notNull(),
-  associatedId: int("associated_id"),
-  sortNo: int("sort_no").default(0).notNull(),
-  enabled: boolean("enabled").default(true).notNull(),
-  createdAt: timestamp("created_at").defaultNow().notNull(),
-  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow(),
-});
-
-export const layoutHeroCategories = mysqlTable("layout_hero_categories", {
-  id: serial("id").primaryKey(),
-  name: varchar("name", { length: 100 }).notNull().unique(),
-  createdAt: timestamp("created_at").defaultNow().notNull(),
-  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow(),
-});
-
-export const layoutHeroCategoryItems = mysqlTable(
-  "layout_hero_category_items",
-  {
-    id: serial("id").primaryKey(),
-    parentId: int("parent_id").notNull(),
-    type: mysqlEnum("type", [
-      LayoutHeroCategoryItemType.PRODUCT,
-      LayoutHeroCategoryItemType.CATEGORY,
-      LayoutHeroCategoryItemType.LABEL,
-    ]).notNull(),
-    associatedId: int("associated_id").notNull(),
-    createdAt: timestamp("created_at").defaultNow().notNull(),
-    updatedAt: timestamp("updated_at").defaultNow().onUpdateNow(),
-  }
-);
 
 export const products = mysqlTable("products", {
   id: serial("id").primaryKey(),
