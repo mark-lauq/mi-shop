@@ -1,6 +1,10 @@
 import { db } from "@/lib/db";
-import { banners } from "@/lib/schema";
-import { bannersData, carouselsData, promotionsData } from "@/lib/placeholder-data";
+import { banners } from "@/lib/schema/banner";
+import {
+  bannersData,
+  carouselsData,
+  promotionsData,
+} from "@/lib/placeholder-data/banner";
 import { BannerType } from "@/enums/banner";
 
 export async function seedBanners() {
