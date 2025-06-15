@@ -25,6 +25,12 @@ body {
   background-color: var(--color-bg);
 }
 
+.text-ellipsis {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
 * {
   outline: none;
 }
