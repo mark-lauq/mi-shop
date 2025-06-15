@@ -10,7 +10,7 @@
   cursor: pointer;
 
   &.prev {
-    left: 0;
+    left: 234px;
     background-position: -84px 50%;
 
     &:hover {
